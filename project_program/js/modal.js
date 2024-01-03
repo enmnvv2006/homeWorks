@@ -20,23 +20,6 @@
         }
     }
 
-    // var options = {
-    //     root: null,
-    //     rootMargin: '0px',
-    //     threshold: 1.0
-    // }
-
-    // var callback = () => { 
-    //     openModal()
-    //     observer = null;
-    // };
-
-
-    // var observer = new IntersectionObserver(callback, options);
-
-    // var target = document.querySelector('.footer');
-    // observer.observe(target);
-
     const scrollHandle = () => {
         scrollDistanceFromTop = window.scrollY;
         windowHeight = window.innerHeight;

@@ -101,3 +101,79 @@ const converter = (element,targetElement,targetElement2,current) => {
 converter(som,usd,eur,'som')
 converter(usd,som,eur,'usd')
 converter(eur,som,usd,'eur')
+
+// CARD SWITCHER
+
+const card = document.querySelector('.card'),
+    btnNext = document.querySelector('#btn-next'),
+    btnPrev = document.querySelector('#btn-prev')
+
+let count = 1
+
+fetch(`https://jsonplaceholder.typicode.com/todos/${count}`)
+    .then(response => response.json())
+    .then(data => {
+        card.innerHTML = `
+            <p>${data.title}</p>
+            <p style="color: ${data.completed ? 'green' : 'red'}">${data.completed}</p>
+            <span>${data.id}</span>
+        `
+    })
+
+btnNext.addEventListener('click',() => {
+    count++
+    if (count > 200) {
+        count = 1
+    }
+    fetch(`https://jsonplaceholder.typicode.com/todos/${count}`)
+    .then(response => response.json())
+    .then(data => {
+        card.innerHTML = `
+            <p>${data.title}</p>
+            <p style="color: ${data.completed ? 'green' : 'red'}">${data.completed}</p>
+            <span>${data.id}</span>
+        `
+    })
+})
+
+btnPrev.addEventListener('click',() => {
+    count--
+    if (count < 1) {
+        count = 200
+    }
+    fetch(`https://jsonplaceholder.typicode.com/todos/${count}`)
+    .then(response => response.json())
+    .then(data => {
+        card.innerHTML = `
+            <p>${data.title}</p>
+            <p style="color: ${data.completed ? 'green' : 'red'}">${data.completed}</p>
+            <span>${data.id}</span>
+        `
+    })
+})
+
+
+fetch(`https://jsonplaceholder.typicode.com/posts`)
+.then(response => response.json())
+.then(data => {
+    console.log(data);
+})
+
+// WEATHER
+
+const cityNameInput = document.querySelector('.cityName')
+const btnSearch = document.querySelector('#btn-search')
+const city = document.querySelector('.city')
+const temp = document.querySelector('.temp')   
+
+const BASE_URL = "http://api.openweathermap.org"
+const API_KEY = "e417df62e04d3b1b111abeab19cea714"
+
+btnSearch.addEventListener('click',() => {
+    fetch(`${BASE_URL}/data/2.5/weather?q=${cityNameInput.value}&appid=${API_KEY}`)
+    .then(response => response.json())
+    .then(data => {
+        city.innerHTML = data.name ? data.name : "Город не найден..."
+        temp.innerHTML = data.main.temp ? Math.round(data.main.temp - 273.15) + '&deg;C' : "..."
+    })
+})
