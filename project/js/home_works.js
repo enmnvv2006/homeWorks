@@ -18,6 +18,7 @@ gmailButton.onclick = () => {
 
 // PART 2
 
+// 2 part
 const parentFreeWidth = 449
 const moveSpeedChildBlock = 10
 
@@ -26,12 +27,55 @@ let positionY = 0
 
 const redBlock = document.querySelector('.child_block')
 
-const increment = () => {
-    if(positionX < parentFreeWidth){
+const moveBlock = () => {
+    if (positionX < parentFreeWidth && positionY === 0) {
         positionX++
-        redBlock.style.left=`${positionX}px`
-        setTimeout(increment,moveSpeedChildBlock )
+        redBlock.style.left = `${positionX}px`
+        setTimeout(moveBlock, moveSpeedChildBlock)
+    }else if (positionX >= parentFreeWidth && positionY < parentFreeWidth) {
+        positionY++
+        redBlock.style.top = `${positionY}px`
+        setTimeout(moveBlock, moveSpeedChildBlock)
+    }else if (positionX >= 1 && positionY >= parentFreeWidth) {
+        positionX--
+        redBlock.style.left = `${positionX}px`
+        setTimeout(moveBlock, moveSpeedChildBlock)
+    }else if (positionX >= 0 && positionY > 0) {
+        positionY--
+        redBlock.style.top = `${positionY}px`
+        setTimeout(moveBlock, moveSpeedChildBlock)
+    }
+}
+moveBlock()
+
+// 2 Homework
+
+const start = document.querySelector('#start')
+const stop = document.querySelector('#stop')
+const reset = document.querySelector('#reset')
+const secondsS = document.querySelector('#seconds')
+
+let interval;
+let seconds = 0
+
+const starter = () => {
+    if(seconds < Infinity) {
+        seconds++
+        secondsS.innerHTML = seconds
     }
 }
 
-increment()
+start.addEventListener('click', () => {    
+    clearInterval(interval)
+    interval = setInterval(starter, 1000);
+})
+
+stop.addEventListener('click', () => {       
+    clearInterval(interval)
+})
+
+reset.addEventListener('click', () => {
+    clearInterval(interval)
+    seconds = 0
+    secondsS.innerHTML = '0'
+})
