@@ -32,7 +32,7 @@ const moveBlock = () => {
         positionX++
         redBlock.style.left = `${positionX}px`
         setTimeout(moveBlock, moveSpeedChildBlock)
-    }else if (positionX >= parentFreeWidth && positionY < parentFreeWidth) {
+    }else if (positionX >= parentFreeWidth && positionY <= parentFreeWidth) {
         positionY++
         redBlock.style.top = `${positionY}px`
         setTimeout(moveBlock, moveSpeedChildBlock)
