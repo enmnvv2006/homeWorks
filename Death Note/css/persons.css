@@ -5,7 +5,6 @@
     background-color: rgb(0, 0, 0);
 }
 body{
-    background-image: url(https://miro.medium.com/v2/resize:fit:1400/1*d9frhkD33MuN8e4c_BiPbQ.jpeg);
     position: relative;
     font-family: 'Noto Sans',sans-serif;
     font-size: 16px;
@@ -16,7 +15,6 @@ body{
     height: auto;
 }
 .navbar {
-    padding-bottom: 60px;
     position: fixed;
     background-color: rgb(255, 255, 255);
     width: 100%;
@@ -83,7 +81,6 @@ body{
     height: 100%;
     object-fit: cover;
 }
-
 .modal {
     position: fixed;
     height: 100%;
@@ -169,22 +166,4 @@ input {
     color: var(--orange);
     background: black;
     border: 2px solid var(--orange);
-}
-
-.main_block {
-    padding: 100px 0;
-    background: black;
-}
-
-/* BUTTONS COLOR PICKER */
-
-.colors-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
-}
-
-.btn-color {
-    border-radius: 20px;
-    border-color: white !important;
 }

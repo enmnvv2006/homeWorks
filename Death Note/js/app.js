@@ -1,36 +1,30 @@
-// part 1
+// RANDOM COLOR GENERATOR
 
-const xhr = new XMLHttpRequest()
-xhr.open('GET','peoples.json')
-xhr.setRequestHeader('Content-type','application/json')
-xhr.send()
+const buttonsColor = document.querySelectorAll('.btn-color')
+const javaScript = document.querySelector('#js-color')
 
-xhr.addEventListener('load',() => {
-    const peoples = JSON.parse(xhr.response)
-    const personsWrapper = document.querySelector('.persons')
+const generateRandomColor = () => {
+    const hexCodes = '0123456789ABCDEF'
+    let color = ''
+    for (let i = 0; i < 6; i++) {
+        color += hexCodes[Math.floor(Math.random() * hexCodes.length)]
+    }
+    return '#' + color
+}
 
-    peoples.forEach((person) => {
-        const personCard = document.createElement('div')
-        personCard.setAttribute('class', 'personCard')
-        personCard.innerHTML = `
-        <div class="personImage">
-            <img src="${person.photo}" alt="">
-        </div>
-        <p>${person.name}</p>
-        <p>Age: ${person.age}</p>
-    `
-        personsWrapper.append(personCard)
-    });
-})
+const setRandomColors = () => {
+    buttonsColor.forEach((buttonColor) => {
+        buttonColor.innerHTML = generateRandomColor()
+        buttonColor.onclick = (event) => {
+            javaScript.style.color = event.target.innerHTML
+        }
+    })
+}
 
-// part 2
-
-const kanatsID = new XMLHttpRequest()
-kanatsID.open('GET','kanat.json')
-kanatsID.setRequestHeader('Content-type','application/json')
-kanatsID.send()
-
-kanatsID.addEventListener('load',() => {
-    const dontKnow = JSON.parse(kanatsID.response)
-    console.log(dontKnow);
-})
+window.onload = () => setRandomColors()
+window.onkeydown = (event) => {
+    if (event.code.toLowerCase() === 'space') {
+        event.preventDefault()
+        setRandomColors()
+    }
+}
