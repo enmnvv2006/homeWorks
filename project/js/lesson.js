@@ -101,3 +101,51 @@ const converter = (element,targetElement,targetElement2,current) => {
 converter(som,usd,eur,'som')
 converter(usd,som,eur,'usd')
 converter(eur,som,usd,'eur')
+
+// CARD SWITCHER
+
+const card = document.querySelector('.card')
+const btnPrev = document.querySelector('#btn-prev')
+const btnNext = document.querySelector('#btn-next')
+
+let count = 1
+
+const cardFetcher = (id) => {
+    fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
+        .then(response => response.json())
+        .then(data => {
+            card.innerHTML = `
+                <p>${data.title}</p>
+                <p style="color: ${data.completed ? 'green' : 'red'}">
+                    ${data.completed}
+                </p>
+                <span>${data.id}</span>
+            `
+        })   
+}
+
+btnNext.onclick = () => {
+    count++
+    if(count > 200) {
+        count = 1
+    }
+    cardFetcher(count)
+}
+
+btnPrev.onclick = () => {
+    count--
+    if(count < 1) {
+        count = 200
+    }
+    cardFetcher(count)
+}
+
+cardFetcher(count)
+
+// PART 2
+
+fetch(`https://jsonplaceholder.typicode.com/posts`)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
