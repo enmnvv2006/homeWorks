@@ -1,3 +1,33 @@
+.cards {
+    padding-top: 140px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+.personCard {
+    height: 300px;
+    padding: 5px;
+    width: 300px;
+    border: 1px solid;
+    border-radius: 8px;
+    text-align: center;
+}
+.personImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+
+}
+.personImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* HEADER */
 
 .header {

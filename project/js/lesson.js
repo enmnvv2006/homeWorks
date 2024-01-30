@@ -69,34 +69,30 @@ const usd = document.querySelector('#usd')
 const eur = document.querySelector('#eur')
 
 const converter = (element,targetElement,targetElement2,current) => {
-    element.oninput = () => {
-         const xhr = new XMLHttpRequest()
-         xhr.open('GET','../data/converter.json')
-         xhr.setRequestHeader('Content-type','application/json')
-         xhr.send()
-
-         xhr.onload = () => {
-            const data = JSON.parse(xhr.response)
-
-            switch (current) {
-                case 'som':
-                    targetElement.value = (element.value / data.usd).toFixed(2)
-                    targetElement2.value = (element.value / data.eur).toFixed(2)
-                    break
-                case 'usd':
-                    targetElement.value = (element.value * data.usd).toFixed(2)
-                    targetElement2.value = (element.value * data.usd / data.eur).toFixed(2)
-                    break
-                case 'eur':
-                    targetElement.value = (element.value * data.eur).toFixed(2)
-                    targetElement2.value = (element.value * data.eur / data.usd).toFixed(2)
-                    break
-                default:
-                    break
-            }
-         }
-    }
-}
+    element.oninput = async () => {
+        try {
+            const response = await fetch('../data/converter.json')
+            const data = await response.json()
+                switch (current) {
+                    case 'som':
+                        targetElement.value = (element.value / data.usd).toFixed(2)
+                        targetElement2.value = (element.value / data.eur).toFixed(2)
+                        break
+                    case 'usd':
+                        targetElement.value = (element.value * data.usd).toFixed(2)
+                        targetElement2.value = (element.value * data.usd / data.eur).toFixed(2)
+                        break
+                    case 'eur':
+                        targetElement.value = (element.value * data.eur).toFixed(2)
+                        targetElement2.value = (element.value * data.eur / data.usd).toFixed(2)
+                        break
+                    default:
+                        break
+                }
+        } catch (error) {
+            console.log(error);
+        }
+}}
 
 converter(som,usd,eur,'som')
 converter(usd,som,eur,'usd')
@@ -110,10 +106,10 @@ const btnNext = document.querySelector('#btn-next')
 
 let count = 1
 
-const cardFetcher = (id) => {
-    fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
-        .then(response => response.json())
-        .then(data => {
+const cardFetcher = async (id) => {
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
+        const data = await response.json()
             card.innerHTML = `
                 <p>${data.title}</p>
                 <p style="color: ${data.completed ? 'green' : 'red'}">
@@ -121,8 +117,12 @@ const cardFetcher = (id) => {
                 </p>
                 <span>${data.id}</span>
             `
-        })   
+    }catch (error) {
+        console.log(error);
+    }
 }
+
+
 
 btnNext.onclick = () => {
     count++
@@ -144,8 +144,31 @@ cardFetcher(count)
 
 // PART 2
 
-fetch(`https://jsonplaceholder.typicode.com/posts`)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-    })
+const asyncLog = async () => {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const data = await response.json()
+    console.log(data);
+}
+
+asyncLog()
+
+// WEATHER
+
+const cityNameInput = document.querySelector('.cityName')
+const btnSearch = document.querySelector('#search')
+const city = document.querySelector('.city')
+const temp = document.querySelector('.temp')   
+
+const BASE_URL = "http://api.openweathermap.org"
+const API_KEY = "e417df62e04d3b1b111abeab19cea714"
+
+btnSearch.addEventListener('click',async () => {
+    try {
+        const response = await fetch(`${BASE_URL}/data/2.5/weather?q=${cityNameInput.value}&appid=${API_KEY}`)
+        const data = await response.json()
+        city.innerHTML = data.name || "Город не найден..."
+        temp.innerHTML = data.main?.temp ? Math.round(data.main?.temp - 273.15) + '&deg;C' : "..."
+    } catch (error) {
+        console.log(error);
+    }
+})
