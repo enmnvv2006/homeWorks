@@ -1,0 +1,395 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #000000;
+    color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    gap: 100px;
+}
+
+/* Left Section - Images Collage */
+.left-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.images-collage {
+    position: relative;
+    width: 450px;
+    height: 500px;
+}
+
+.phone-image {
+    position: absolute;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.phone-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.phone-1 {
+    width: 160px;
+    height: 280px;
+    top: 40px;
+    left: 20px;
+    transform: rotate(-5deg);
+    z-index: 2;
+}
+
+.phone-2 {
+    width: 140px;
+    height: 200px;
+    top: 80px;
+    left: 150px;
+    transform: rotate(5deg);
+    z-index: 3;
+}
+
+.phone-3 {
+    width: 130px;
+    height: 180px;
+    top: 200px;
+    left: 50px;
+    z-index: 1;
+}
+
+.phone-4 {
+    width: 150px;
+    height: 220px;
+    top: 60px;
+    right: 50px;
+    transform: rotate(8deg);
+    z-index: 2;
+    border-radius: 50%;
+    border: 4px solid #833ab4;
+}
+
+.phone-4 img {
+    border-radius: 50%;
+}
+
+/* Decorative Elements */
+.emoji-bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.emoji-1 {
+    top: 20px;
+    left: 80px;
+}
+
+.emoji-2 {
+    top: 100px;
+    right: 80px;
+    background: #5b51d8;
+    color: white;
+}
+
+.heart-icon {
+    position: absolute;
+    font-size: 24px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.heart-1 {
+    top: 60px;
+    left: 0;
+}
+
+.heart-2 {
+    bottom: 180px;
+    left: 10px;
+}
+
+.heart-3 {
+    bottom: 100px;
+    left: 60px;
+}
+
+.story-ring {
+    position: absolute;
+    width: 160px;
+    height: 230px;
+    border: 3px solid;
+    border-image: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) 1;
+    border-radius: 20px;
+    top: 60px;
+    right: 40px;
+    z-index: 1;
+}
+
+.message-bubble {
+    position: absolute;
+    bottom: 60px;
+    left: 80px;
+    background: #262626;
+    padding: 12px 50px 12px 20px;
+    border-radius: 25px;
+    border: 1px solid #363636;
+}
+
+.heart-outline {
+    color: #fff;
+    font-size: 18px;
+}
+
+/* Right Section - Form */
+.right-section {
+    width: 350px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.instagram-logo {
+    font-family: 'Billabong', 'Brush Script MT', cursive;
+    font-size: 52px;
+    font-weight: 400;
+    color: #f5f5f5;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+/* Form Styles */
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px 14px;
+    background: #121212;
+    border: 1px solid #363636;
+    border-radius: 4px;
+    color: #f5f5f5;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-group input::placeholder {
+    color: #a8a8a8;
+}
+
+.input-group input:focus {
+    border-color: #525252;
+}
+
+.show-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #f5f5f5;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: none;
+}
+
+.input-group input:not(:placeholder-shown)~.show-password {
+    display: block;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background: #0095f6;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+}
+
+.btn-login:hover {
+    background: #1aa1f7;
+}
+
+.btn-login:disabled {
+    background: #0095f6;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #363636;
+}
+
+.divider span {
+    padding: 0 18px;
+    color: #a8a8a8;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Facebook Login */
+.facebook-login {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #e0f1ff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.facebook-login:hover {
+    text-decoration: underline;
+}
+
+/* Forgot Password */
+.forgot-password {
+    color: #a8a8a8;
+    text-decoration: none;
+    font-size: 12px;
+    margin-bottom: 80px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Signup Link */
+.signup-link {
+    color: #a8a8a8;
+    font-size: 14px;
+}
+
+.signup-link a {
+    color: #0095f6;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    padding: 30px 20px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+    margin-bottom: 20px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-links a {
+    color: #737373;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.language-select {
+    background: transparent;
+    border: none;
+    color: #737373;
+    font-size: 12px;
+    cursor: pointer;
+    outline: none;
+}
+
+.language-select option {
+    background: #000;
+}
+
+.footer-bottom span {
+    color: #737373;
+    font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .left-section {
+        display: none;
+    }
+
+    .container {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 450px) {
+    .right-section {
+        width: 100%;
+        padding: 0 20px;
+    }
+}

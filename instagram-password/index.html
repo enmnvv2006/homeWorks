@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Левая часть с изображениями -->
+        <div class="left-section">
+            <div class="images-collage">
+                <!-- Основные фото -->
+                <div class="phone-image phone-1">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=400&fit=crop" alt="">
+                </div>
+                <div class="phone-image phone-2">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop" alt="">
+                </div>
+                <div class="phone-image phone-3">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=300&h=400&fit=crop" alt="">
+                </div>
+                <div class="phone-image phone-4">
+                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=300&h=400&fit=crop" alt="">
+                </div>
+
+                <!-- Декоративные элементы -->
+                <div class="emoji-bubble emoji-1">🔥❤️❤️</div>
+                <div class="emoji-bubble emoji-2">⭐✓</div>
+                <div class="heart-icon heart-1">💜</div>
+                <div class="heart-icon heart-2">🧡</div>
+                <div class="heart-icon heart-3">❤️</div>
+                <div class="story-ring"></div>
+                <div class="message-bubble">
+                    <span class="heart-outline">♡</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая часть с формой -->
+        <div class="right-section">
+            <div class="form-container">
+                <h1 class="instagram-logo">Instagram</h1>
+
+                <form class="login-form">
+                    <div class="input-group">
+                        <input type="text" name="name" id="username"
+                            placeholder="Телефон, имя пользователя или эл. адрес" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="password" id="password" placeholder="Пароль" required>
+                        <button type="button" class="show-password">Показать</button>
+                    </div>
+
+                    <button type="submit" class="btn-login">Войти</button>
+                </form>
+
+                <div class="divider">
+                    <span>ИЛИ</span>
+                </div>
+
+                <a href="#" class="facebook-login">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#1877f2">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                    Войти через Facebook
+                </a>
+
+                <a href="#" class="forgot-password">Забыли пароль?</a>
+
+                <div class="signup-link">
+                    У вас нет аккаунта? <a href="#">Зарегистрироваться</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#">Meta</a>
+            <a href="#">Информация</a>
+            <a href="#">Блог</a>
+            <a href="#">Вакансии</a>
+            <a href="#">Помощь</a>
+            <a href="#">API</a>
+            <a href="#">Конфиденциальность</a>
+            <a href="#">Условия</a>
+            <a href="#">Места</a>
+            <a href="#">Instagram Lite</a>
+            <a href="#">Meta AI</a>
+            <a href="#">Threads</a>
+            <a href="#">Загрузка контактов и лица, не являющиеся пользователями</a>
+            <a href="#">Meta Verified</a>
+        </div>
+        <div class="footer-bottom">
+            <select class="language-select">
+                <option value="ru">Русский</option>
+                <option value="en">English</option>
+            </select>
+            <span>© 2025 Instagram from Meta</span>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
