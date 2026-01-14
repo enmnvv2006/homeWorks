@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.search-section {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.search-input {
+    flex: 0 1 400px;
+    padding: 12px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.search-btn {
+    padding: 12px 30px;
+    font-size: 1em;
+    font-weight: 600;
+    background: white;
+    color: #667eea;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.search-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.search-btn:active {
+    transform: scale(0.98);
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 15px;
+}
+
+.card-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.card-id {
+    background: #667eea;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.card-info {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.95em;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #667eea;
+}
+
+.info-value {
+    color: #333;
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.status.graduated {
+    background: #10b981;
+    color: white;
+}
+
+.status.not-graduated {
+    background: #f59e0b;
+    color: white;
+}
+
+.grades-section {
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+.grades-list {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.grade {
+    background: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #667eea;
+    font-size: 0.9em;
+}
+
+.hobbies-section {
+    margin-top: 15px;
+}
+
+.hobbies-list {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.hobby {
+    background: #e0e7ff;
+    color: #667eea;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+.hobby:before {
+    content: "✨ ";
+}
+
+.no-hobbies {
+    color: #999;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.average-grade {
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.avg-label {
+    font-size: 0.85em;
+    color: #999;
+}
+
+.avg-value {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #667eea;
+}
