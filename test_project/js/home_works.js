@@ -79,3 +79,5 @@ resetBtn.addEventListener("click", () => {
     time.innerHTML = 0
     running = false
 })
+
+
