@@ -62,3 +62,15 @@ const autoSlider = (i = 0) => {
 }
 
 autoSlider()
+
+// ANY
+
+const xhr = new XMLHttpRequest()
+xhr.open('GET', '../data/any.json')
+xhr.setRequestHeader('Content-type', 'application/json')
+xhr.send()
+
+xhr.onload = () => {
+    const data = JSON.parse(xhr.response)
+    console.log(data);
+}

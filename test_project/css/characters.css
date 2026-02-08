@@ -1,0 +1,216 @@
+/* CHARACTERS PAGE */
+
+.characters {
+    padding: 100px 0;
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.85) 0%, rgba(22, 33, 62, 0.85) 100%), 
+    url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8fW36S_zEVqOmLiy41URGGonMnPj2hy-KxQ&s') center/cover no-repeat fixed;
+    min-height: 100vh;
+}
+
+.characters .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px 20px;
+}
+
+/* CHARACTER CARD */
+
+.character {
+    height: auto;
+}
+
+.character__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    background: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.character__front,
+.character__back {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    backface-visibility: visible;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.character__front {
+    background: #1a1a1a;
+}
+
+.character__back {
+    transform: rotateY(0deg);
+    background: transparent;
+    padding: 0;
+    justify-content: flex-start;
+    display: none;
+}
+
+/* FRONT SIDE */
+
+.character__image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.character__info {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 8px;
+    background: #2c2d2f;
+}
+
+.character__name {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.character__age {
+    font-size: 18px;
+    color: #ffffff;
+    margin: 10px 0;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.character__label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* BACK SIDE */
+
+.character__bio {
+    font-size: 14px;
+    color: white;
+    line-height: 1.5;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    font-family: 'Georgia', serif;
+}
+
+.character__bio-title {
+    font-size: 13px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.character__flip-hint {
+    display: none;
+}
+
+/* DECORATIVE ELEMENTS */
+
+.character__front::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #000000, transparent);
+    z-index: 10;
+}
+
+.character__back::before {
+    display: none;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    .characters .container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px 15px;
+    }
+
+    .character__name {
+        font-size: 18px;
+    }
+
+    .character__bio {
+        font-size: 13px;
+    }
+
+    .character__image {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .characters {
+        padding: 60px 0;
+    }
+
+    .characters .container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .character__image {
+        height: 200px;
+    }
+
+    .character__info {
+        padding: 15px;
+    }
+
+    .character__name {
+        font-size: 16px;
+    }
+
+    .character__bio {
+        font-size: 12px;
+    }
+}
+
+/* ANIMATION ON LOAD */
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.character {
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+.character:nth-child(1) { animation-delay: 0.1s; }
+.character:nth-child(2) { animation-delay: 0.2s; }
+.character:nth-child(3) { animation-delay: 0.3s; }
+.character:nth-child(4) { animation-delay: 0.4s; }
+.character:nth-child(5) { animation-delay: 0.5s; }
+.character:nth-child(6) { animation-delay: 0.6s; }
