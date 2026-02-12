@@ -74,3 +74,48 @@ xhr.onload = () => {
     const data = JSON.parse(xhr.response)
     console.log(data);
 }
+
+// CONVERTER
+
+const somInput = document.querySelector('#som')
+const usdInput = document.querySelector('#usd')
+const eurInput = document.querySelector('#eur')
+
+
+const converter = (element, target, num) => {
+    element.oninput = () => {
+
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET', '../data/converter.json')
+        xhr.setRequestHeader('Content-type', 'application/json')
+        xhr.send()
+
+        xhr.onload = () => {
+            const data = JSON.parse(xhr.response)
+
+            if (element.id === 'som') {
+                target.value = (element.value / data.usd).toFixed(2)
+                num.value = (element.value / data.eur).toFixed(2)
+            }
+
+            if (element.id === 'usd') {
+                target.value = (element.value * data.usd).toFixed(2)
+                num.value = (target.value / data.eur).toFixed(2)
+            }
+
+            if (element.id === 'eur') {
+                num.value = (element.value * data.eur).toFixed(2)
+                target.value = ((element.value * data.eur) / data.usd).toFixed(2)
+            }
+
+            if (element.value === '') {
+                target.value = ''
+                num.value = ''
+            }
+        }
+    }
+}
+
+converter(somInput, usdInput,eurInput)
+converter(usdInput, somInput, eurInput)
+converter(eurInput,usdInput, somInput)
