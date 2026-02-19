@@ -14,37 +14,6 @@ gmailButton.addEventListener('click', () => {
   }
 });
 
-// move block
-
-const parentBlock = document.querySelector('.parent_block')
-const childBlock = document.querySelector('.child_block')
-
-let positionX = 0
-let positionY = 0
-
-const offsetWidth = parentBlock.clientWidth - childBlock.clientWidth
-const offsetHeight = parentBlock.clientHeight - childBlock.clientHeight
-
-const move = () => {
-    if (positionX < offsetWidth && positionY === 0) {
-        positionX++
-    } else if (positionX >= offsetWidth && positionY < offsetHeight) {
-        positionY++
-    } else if (positionY >= offsetHeight && positionX > 0) {
-        positionX--
-    } else if (positionX <= 0 && positionY > 0) {
-        positionY--
-    }
-
-    childBlock.style.left = `${positionX}px`
-    childBlock.style.top = `${positionY}px`
-
-
-    requestAnimationFrame(move)
-}
-
-move()
-
 // timer
 
 const time = document.querySelector("#seconds")

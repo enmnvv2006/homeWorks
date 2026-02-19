@@ -65,15 +65,22 @@ autoSlider()
 
 // ANY
 
-const xhr = new XMLHttpRequest()
-xhr.open('GET', '../data/any.json')
-xhr.setRequestHeader('Content-type', 'application/json')
-xhr.send()
+const getAnyData = async () => {
+    try {
+        const response = await fetch('../data/any.json')
 
-xhr.onload = () => {
-    const data = JSON.parse(xhr.response)
-    console.log(data);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
+        }
+
+        const data = await response.json()
+        console.log(data)
+    } catch (error) {
+        console.error('Ошибка при загрузке any.json:', error)
+    }
 }
+
+getAnyData()
 
 // CONVERTER
 
@@ -83,15 +90,15 @@ const eurInput = document.querySelector('#eur')
 
 
 const converter = (element, target, num) => {
-    element.oninput = () => {
+    element.oninput = async () => {
+        try {
+            const response = await fetch('../data/converter.json')
 
-        const xhr = new XMLHttpRequest()
-        xhr.open('GET', '../data/converter.json')
-        xhr.setRequestHeader('Content-type', 'application/json')
-        xhr.send()
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`)
+            }
 
-        xhr.onload = () => {
-            const data = JSON.parse(xhr.response)
+            const data = await response.json()
 
             if (element.id === 'som') {
                 target.value = (element.value / data.usd).toFixed(2)
@@ -112,6 +119,8 @@ const converter = (element, target, num) => {
                 target.value = ''
                 num.value = ''
             }
+        } catch (error) {
+            console.error('Ошибка при загрузке converter.json:', error)
         }
     }
 }
@@ -127,24 +136,29 @@ const btnNext = document.querySelector('#btn-next')
 const btnPrev = document.querySelector('#btn-prev')
 let cardId = 1
 
-const showAPI =  () => {
-    fetch(`https://jsonplaceholder.typicode.com/todos/${cardId}`)
-    .then(response => response.json())
-    .then(data => {
-      
-      const { title, id, completed } = data
-      const completedTitle = completed ? 'yes' : 'no'
-      const completedColor = completed ? 'green' : 'red'
+const showAPI = async () => {
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/todos/${cardId}`)
 
-      card.innerHTML = `
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
+        }
+
+        const data = await response.json()
+        const { title, id, completed } = data
+        const completedTitle = completed ? 'yes' : 'no'
+        const completedColor = completed ? 'green' : 'red'
+
+        card.innerHTML = `
         <p>${title}</p>
         <p style="color: ${completedColor}">
           ${completedTitle}
         </p>
         <span>${id}</span>
       `
-    })
-    
+    } catch (error) {
+        console.error('Ошибка при загрузке TODO:', error)
+    }
 }
 
 btnNext.onclick = () => {
@@ -167,9 +181,19 @@ showAPI()
 
 // 2 Задание
 
-fetch(`https://jsonplaceholder.typicode.com/posts/`)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);    
+const getPosts = async () => {
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts/`)
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
+        }
+
+        const data = await response.json()
+        console.log(data)
+    } catch (error) {
+        console.error('Ошибка при загрузке posts:', error)
     }
-)
+}
+
+getPosts()
