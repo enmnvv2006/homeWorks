@@ -8,9 +8,8 @@ export const UserCard = ({ name, age, city, active, img }) => {
       style={{ width: 240, display: active ? "block" : "none" }}
       cover={<img draggable={false} alt="example" src={img} />}
     >
-      <Meta title={name} />
-      <Meta title={age} />
-      <Meta title={city} />
+      <Meta title={"Name: " + name} description={"Age: " + age} />
+      <Meta title={"City: " + city} />
     </Card>
   );
 };
