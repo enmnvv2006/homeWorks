@@ -1,0 +1,11 @@
+.shop {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.shop__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
