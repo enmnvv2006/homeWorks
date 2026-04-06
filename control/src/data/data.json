@@ -1,0 +1,66 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "title": "Электроника",
+            "slug": "electronics"
+        },
+        {
+            "id": 2,
+            "title": "Одежда",
+            "slug": "clothes"
+        },
+        {
+            "id": 3,
+            "title": "Книги",
+            "slug": "books"
+        }
+    ],
+    "products": [
+        {
+            "id": 101,
+            "title": "iPhone 14",
+            "price": 999,
+            "categoryId": 1,
+            "description": "Смартфон от Apple",
+            "image": "https://via.placeholder.com/300x200",
+            "inStock": true
+        },
+        {
+            "id": 102,
+            "title": "Ноутбук Lenovo",
+            "price": 750,
+            "categoryId": 1,
+            "description": "Рабочий ноутбук для учёбы",
+            "image": "https://via.placeholder.com/300x200",
+            "inStock": true
+        },
+        {
+            "id": 201,
+            "title": "Футболка Nike",
+            "price": 35,
+            "categoryId": 2,
+            "description": "Спортивная футболка",
+            "image": "https://via.placeholder.com/300x200",
+            "inStock": false
+        },
+        {
+            "id": 202,
+            "title": "Джинсы Levi’s",
+            "price": 120,
+            "categoryId": 2,
+            "description": "Классические джинсы",
+            "image": "https://via.placeholder.com/300x200",
+            "inStock": true
+        },
+        {
+            "id": 301,
+            "title": "React для начинающих",
+            "price": 25,
+            "categoryId": 3,
+            "description": "Книга по React",
+            "image": "https://via.placeholder.com/300x200",
+            "inStock": true
+        }
+    ]
+}

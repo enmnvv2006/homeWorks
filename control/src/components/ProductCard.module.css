@@ -1,0 +1,30 @@
+.image {
+  height: 200px;
+  object-fit: cover;
+}
+
+.title {
+  font-size: 18px;
+}
+
+.descriptionWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.paragraph {
+  margin: 0;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.price {
+  margin: 0;
+  color: #000;
+}
